@@ -22,5 +22,5 @@ This project implements a Swimlane User Interface (UI) that supports drag-and-dr
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/swimlane-ui.git
+   git clone https://github.com/yogeshmasaistudent/pepsale.git
    cd swimlane-ui
