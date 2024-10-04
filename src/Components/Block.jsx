@@ -22,7 +22,6 @@ const Block = ({ block, onClick }) => {
       opacity={isDragging ? 0.6 : 1}
       cursor="pointer"
       onClick={onClick}
-      transition="transform 0.2s ease, box-shadow 0.2s ease"
       _hover={{
         transform: "scale(1.05)",
         boxShadow: "xl",

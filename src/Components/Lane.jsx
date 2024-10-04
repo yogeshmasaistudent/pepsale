@@ -11,7 +11,6 @@ const Lane = ({ state, blocks, onDrop, onBlockClick }) => {
       isOver: !!monitor.isOver(),
     }),
   });
-
   return (
     <Box
       ref={drop}

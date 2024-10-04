@@ -44,8 +44,6 @@ const BlockPreview = ({ block, onClose, onEdit, onDelete }) => {
             </Box>
 
             <Divider />
-
-            {/* Type Info */}
             <Box>
               <Text fontWeight="semibold" fontSize="lg" color="gray.700">
                 Type:
@@ -56,8 +54,6 @@ const BlockPreview = ({ block, onClose, onEdit, onDelete }) => {
             </Box>
 
             <Divider />
-
-            {/* Transition History */}
             <Box>
               <Text fontWeight="semibold" fontSize="lg" color="gray.700">
                 Transition History:

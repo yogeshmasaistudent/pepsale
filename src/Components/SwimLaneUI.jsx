@@ -132,22 +132,18 @@ const SwimLaneUI = ({ config }) => {
       isClosable: true,
     });
   };
-
-  // Handle clicking on a block to view details
   const handleBlockClick = (block) => {
     setSelectedBlock(block);
   };
 
-  // Handle adding a new task
   const handleAddTask = () => {
-    setEditBlock(null); // Ensure no block is being edited
+    setEditBlock(null); 
     onAddEditOpen();
   };
 
-  // Handle submitting a new or edited task
+
   const handleAddEditSubmit = (taskData) => {
     if (editBlock) {
-      // Editing an existing block
       setBlocks(
         blocks.map((block) =>
           block.id === editBlock.id ? { ...block, ...taskData } : block
@@ -161,9 +157,8 @@ const SwimLaneUI = ({ config }) => {
         isClosable: true,
       });
     } else {
-      // Adding a new block
       const newBlock = {
-        id: Date.now(), // Simple unique ID
+        id: Date.now(),
         ...taskData,
         history: [],
       };
@@ -179,13 +174,11 @@ const SwimLaneUI = ({ config }) => {
     onAddEditClose();
   };
 
-  // Handle editing a block from the BlockPreview
   const handleEditBlock = () => {
     setEditBlock(selectedBlock);
     onAddEditOpen();
   };
 
-  // Handle deleting a block from the BlockPreview
   const handleDeleteBlock = () => {
     setBlocks(blocks.filter((block) => block.id !== selectedBlock.id));
     setSelectedBlock(null);
