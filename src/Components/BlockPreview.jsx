@@ -11,12 +11,15 @@ import {
   Box,
   Divider,
   Icon,
+  Button,
+  HStack,
+  ModalFooter,
 } from "@chakra-ui/react";
-import { FiArchive } from "react-icons/fi";
+import { FiArchive, FiEdit, FiTrash2 } from "react-icons/fi";
 
-const BlockPreview = ({ block, onClose }) => {
+const BlockPreview = ({ block, onClose, onEdit, onDelete }) => {
   return (
-    <Modal isOpen={true} onClose={onClose}>
+    <Modal isOpen={true} onClose={onClose} size="lg">
       <ModalOverlay />
       <ModalContent bg="white" borderRadius="lg" boxShadow="2xl">
         <ModalHeader
@@ -71,7 +74,12 @@ const BlockPreview = ({ block, onClose }) => {
                     transition="transform 0.2s ease"
                     _hover={{ transform: "scale(1.02)" }}
                   >
-                    <Text>{`From ${transition.from} to ${transition.to}`}</Text>
+                    <HStack justifyContent="space-between">
+                      <Text>{`From ${transition.from} to ${transition.to}`}</Text>
+                      <Text fontSize="sm" color="gray.400">
+                        {transition.timestamp}
+                      </Text>
+                    </HStack>
                     <Text fontSize="sm" color="gray.500" mt={1}>
                       {JSON.stringify(transition.data)}
                     </Text>
@@ -88,6 +96,30 @@ const BlockPreview = ({ block, onClose }) => {
             </Box>
           </VStack>
         </ModalBody>
+        <Divider />
+        <ModalFooter justifyContent="space-between">
+          <HStack spacing={4}>
+            <Button
+              leftIcon={<FiEdit />}
+              colorScheme="blue"
+              variant="outline"
+              onClick={onEdit}
+            >
+              Edit
+            </Button>
+            <Button
+              leftIcon={<FiTrash2 />}
+              colorScheme="red"
+              variant="outline"
+              onClick={onDelete}
+            >
+              Delete
+            </Button>
+          </HStack>
+          <Button onClick={onClose} variant="ghost">
+            Close
+          </Button>
+        </ModalFooter>
       </ModalContent>
     </Modal>
   );
